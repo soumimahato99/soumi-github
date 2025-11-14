@@ -97,7 +97,7 @@ space = {
     'dense_layers': hp.choice('dense_layers', [1, 2, 3]),
     'dropout_rate': hp.choice('dropout_rate', [0.1, 0.2, 0.5]),
     'batch_size': hp.choice('batch_size', [64, 128, 256, 512]),
-    'learning_rate': hp.choice('learning_rate', [0.0001, 0.0005, 0.001, 0.005, 0.01]),
+    'learning_rate': hp.choice('learning_rate', [0.0001, 0.0005, 0.001, 0.005]),
     'patience': hp.choice('patience', [2, 5, 10]),
     'x_path': '/gpfs-home/p220127ma/Meta_Data/x_train_new.npy',
     'y_path': '/gpfs-home/p220127ma/Meta_Data/y_train_new.npy',
@@ -113,3 +113,4 @@ best = fmin(train_model, space, algo=tpe.suggest, max_evals=30, trials=trials)
 print(best)
 with open('MLP_usd_opt_Gold_result.pkl', 'wb') as f:
     pickle.dump(best, f)
+
